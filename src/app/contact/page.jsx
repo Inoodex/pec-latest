@@ -33,11 +33,6 @@ const Contact = async () => {
   const site_phone=siteData?.site_settings?.contact_phone || "";
   const site_email=siteData?.site_settings?.contact_email || "";
 
-  const phone1 = site_phone || "+8801349523464";
-  const phone2 = footer_phone || "+8801630082236";
-  const email1 = site_email || "pec.info.bd@gmail.com";
-  const email2 = footer_email || "info@peceduglobal.com";
-
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="md:py-20 py-10 md:pt-40 pt-30 max-w-7xl mx-auto">
@@ -54,28 +49,26 @@ const Contact = async () => {
             {/* Left Side - Phone & Email */}
             <div className="w-full lg:w-6/12 flex flex-col">
               <div className="bg-gray-100 p-5 rounded-3xl flex-1 flex flex-col">
-                <h2 className="text-3xl font-semibold text-brand-primary mb-4">
+                <h2 className="text-base text-gray-500 mb-4 text-bold">
                  Greetings Task
                 </h2>
                
-                <h3 className="text-xl text-gray-800 font-semibold">
+                <h3 className="text-xl text-brand-accent font-medium">
                   Phone
                 </h3>
-                <p className="text-gray-900 font-medium mt-1">
-                  {phone1}
+                <p className="text-gray-600 font-light mt-1">
+                  {site_phone}
                 </p>
-                <p className="text-gray-900 font-medium mt-1">
-                  {phone2}
+                <p className="text-gray-600 font-light mt-1">
+                  {footer_phone}
                 </p>
 
-                <h3 className="text-xl text-gray-800 font-semibold mt-4">
-                  E-mail
-                </h3>
-                <p className="text-gray-900 font-medium mt-1">
-                  {email1}
+                
+                <p className="text-gray-600 font-light mt-1">
+                  {site_email}
                 </p>
-                <p className="text-gray-900 font-medium mt-1">
-                  {email2}
+                <p className="text-gray-600 font-light mt-1">
+                  {footer_email}
                 </p>
               </div>
             </div>
