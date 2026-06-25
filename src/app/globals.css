@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-brand-primary: var(--brand-primary);
+    --color-brand-secondary: var(--brand-secondary);
+    --color-brand-accent: var(--brand-accent);
+    --color-brand-muted: var(--brand-muted);
+    --color-brand-contrast: var(--brand-contrast);
+    --color-brand-soft-text: var(--brand-soft-text);
+}
+
+:root {
+    --background: #eff6ff;
+    --foreground: #162556;
+    --brand-primary: #2563eb;
+    --brand-secondary: #dbeafe;
+    --brand-accent: #1e40af;
+    --brand-muted: #bfdbfe;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #dbeafe;
+    --nav-background: rgba(30, 64, 175, 0.78);
+    --nav-border: rgba(147, 197, 253, 0.45);
+    --nav-text: rgba(255, 255, 255, 0.96);
+}
+
+.dark {
+    --background: #09090b;
+    --foreground: #f8fafc;
+    --brand-primary: #94a3b8;
+    --brand-secondary: #18181b;
+    --brand-accent: #e2e8f0;
+    --brand-muted: #27272a;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #d4d4d8;
+    --nav-background: rgba(9, 9, 11, 0.82);
+    --nav-border: rgba(255, 255, 255, 0.18);
+    --nav-text: rgba(248, 250, 252, 0.94);
+}
+
+.blue {
+    --background: #eff6ff;
+    --foreground: #162556;
+    --brand-primary: #2563eb;
+    --brand-secondary: #dbeafe;
+    --brand-accent: #1e40af;
+    --brand-muted: #bfdbfe;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #dbeafe;
+    --nav-background: rgba(30, 64, 175, 0.78);
+    --nav-border: rgba(147, 197, 253, 0.45);
+    --nav-text: rgba(255, 255, 255, 0.96);
+}
+
+.green {
+    --background: #f0fdf4;
+    --foreground: #052e16;
+    --brand-primary: #005720;
+    --brand-secondary: #dcfce7;
+    --brand-accent: #15803d;
+    --brand-muted: #bbf7d0;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #dcfce7;
+    --nav-background: rgba(21, 128, 61, 0.78);
+    --nav-border: rgba(134, 239, 172, 0.45);
+    --nav-text: rgba(255, 255, 255, 0.96);
+}
+.orange {
+    --background: #fdf6f0;
+    --foreground: rgb(138, 62, 0);
+    --brand-primary: orange;
+    --brand-secondary: #fcebdc;
+    --brand-accent: rgb(240, 165, 0);
+    --brand-muted: #f7dfbb;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #fcf2dc;
+    --nav-background: rgba(128, 85, 21, 0.78);
+    --nav-border: rgba(239, 197, 134, 0.45);
+    --nav-text: rgba(255, 255, 255, 0.96);
+}
+
+.purple {
+    --background: #faf5ff;
+    --foreground: #2e1065;
+    --brand-primary: #7e22ce;
+    --brand-secondary: #f3e8ff;
+    --brand-accent: #6b21a8;
+    --brand-muted: #e9d5ff;
+    --brand-contrast: #ffffff;
+    --brand-soft-text: #f3e8ff;
+    --nav-background: rgba(107, 33, 168, 0.78);
+    --nav-border: rgba(216, 180, 254, 0.45);
+    --nav-text: rgba(255, 255, 255, 0.96);
+}
+
+.scroll-none {
+    scrollbar-width: none;
+}
+
+body {
+    background: var(--background);
+    scroll-behavior: smooth;
+    color: var(--foreground);
+    font-family: "Chivo", sans-serif;
+    transition:
+        background-color 200ms ease,
+        color 200ms ease;
+}
+@keyframes marquee-rl {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.animate-marquee-rl {
+    animation: marquee-rl 20s linear infinite;
+}
+
+@keyframes marquee-lr {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+.animate-marquee-lr {
+    animation: marquee-lr 20s linear infinite;
+}
+
+.group:hover .animate-marquee-rl,
+.group:hover .animate-marquee-lr {
+    animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.animate-spin-slow {
+    animation: spin-slow 30s linear infinite;
+}
+
+@keyframes spin-reverse {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+.animate-spin-reverse {
+    animation: spin-reverse 30s linear infinite;
+}
