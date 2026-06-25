@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
 import {
     IoChatboxEllipsesOutline,
@@ -34,6 +34,15 @@ const LiveChat = () => {
     const messagesEndRef = useRef(null);
     const channelRef = useRef(null);
     const prevMsgIds = useRef(new Set());
+    const isOpenRef = useRef(false);
+    const dedupedMessages = useMemo(() => {
+        const seen = new Set();
+        return messages.filter(m => {
+            if (seen.has(m.id)) return false;
+            seen.add(m.id);
+            return true;
+        });
+    }, [messages]);
 
     useEffect(() => {
         const fetchWhatsApp = async () => {
@@ -78,11 +87,18 @@ const LiveChat = () => {
         try {
             const history = await getChatHistory(convId);
             if (history?.length > 0) {
-                setMessages(history.map((m) => ({
-                    id: m.id,
-                    text: m.message,
-                    sender: m.sender_type?.includes("User") ? "support" : "user",
-                })));
+                const seen = new Set();
+                setMessages(history.reduce((acc, m) => {
+                    if (seen.has(m.id)) return acc;
+                    seen.add(m.id);
+                    prevMsgIds.current.add(m.id);
+                    acc.push({
+                        id: m.id,
+                        text: m.message,
+                        sender: m.sender_type?.includes("User") ? "support" : "user",
+                    });
+                    return acc;
+                }, []));
             }
         } catch (err) {
             console.error("Failed to load chat history", err);
@@ -136,7 +152,7 @@ const LiveChat = () => {
                 if (!msg || !msg.sender_type || msg.sender_type?.includes("Guest")) return;
                 if (prevMsgIds.current.has(msg.id)) return;
                 prevMsgIds.current.add(msg.id);
-                if (isOpen) {
+                if (isOpenRef.current) {
                     setMessages((prev) => [...prev, { id: msg.id, text: msg.message, sender: "support" }]);
                 } else {
                     setUnreadCount((u) => u + 1);
@@ -192,6 +208,7 @@ const LiveChat = () => {
                 sender_type: "Guest",
             });
             if (result?.id) {
+                prevMsgIds.current.add(result.id);
                 setMessages((prev) => prev.map((m) => (m.id === tempId ? { ...m, id: result.id } : m)));
             }
         } catch (err) {
@@ -205,6 +222,7 @@ const LiveChat = () => {
 
     const closeChat = () => {
         setIsOpen(false);
+        isOpenRef.current = false;
         if (channelRef.current) {
             channelRef.current.unbind_all();
             channelRef.current.unsubscribe();
@@ -217,31 +235,37 @@ const LiveChat = () => {
     };
 
     useEffect(() => {
+        isOpenRef.current = isOpen;
+    }, [isOpen]);
+
+    useEffect(() => {
         if (!conversationId) return;
         const interval = setInterval(async () => {
             try {
                 const history = await getChatHistory(conversationId);
                 if (!history?.length) return;
-                setMessages((prev) => {
-                    const existingIds = new Set(prev.map(m => m.id));
-                    const newMsgs = history.filter(m => !existingIds.has(m.id) && !prevMsgIds.current.has(m.id) && m.sender_type?.includes("User"));
-                    if (newMsgs.length === 0) return prev;
-                    newMsgs.forEach(m => prevMsgIds.current.add(m.id));
-                    if (isOpen) {
-                        return [...prev, ...newMsgs.map(m => ({ id: m.id, text: m.message, sender: "support" }))];
-                    }
-                    setTimeout(() => setUnreadCount((u) => u + newMsgs.length), 0);
-                    return prev;
-                });
+                const newMsgs = history.filter(m => !prevMsgIds.current.has(m.id) && m.sender_type?.includes("User"));
+                if (newMsgs.length === 0) return;
+                newMsgs.forEach(m => prevMsgIds.current.add(m.id));
+                if (isOpenRef.current) {
+                    setMessages((prev) => [
+                        ...prev,
+                        ...newMsgs.map(m => ({ id: m.id, text: m.message, sender: "support" })),
+                    ]);
+                } else {
+                    setUnreadCount((u) => u + newMsgs.length);
+                }
             } catch (e) {}
         }, 10000);
         return () => clearInterval(interval);
-    }, [conversationId, isOpen]);
+    }, [conversationId]);
 
     const openChat = () => {
         setIsOpen(true);
+        isOpenRef.current = true;
         setUnreadCount(0);
         if (conversationId) {
+            loadHistory(conversationId);
             setupPusher(conversationId);
         }
     };
@@ -307,7 +331,7 @@ const LiveChat = () => {
                                     {messages.length === 0 && (
                                         <p className="text-center text-sm text-foreground/50">No messages yet. Ask us anything!</p>
                                     )}
-                                    {messages.map((chatMessage) => {
+                                    {dedupedMessages.map((chatMessage) => {
                                         const isUser = chatMessage.sender === "user";
                                         return (
                                             <div
