@@ -33,6 +33,11 @@ const Contact = async () => {
   const site_phone=siteData?.site_settings?.contact_phone || "";
   const site_email=siteData?.site_settings?.contact_email || "";
 
+  const phone1 = site_phone || "+8801349523464";
+  const phone2 = footer_phone || "+8801630082236";
+  const email1 = site_email || "pec.info.bd@gmail.com";
+  const email2 = footer_email || "info@peceduglobal.com";
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="md:py-20 py-10 md:pt-40 pt-30 max-w-7xl mx-auto">
@@ -47,46 +52,42 @@ const Contact = async () => {
           <div className="w-full bg-white p-6 md:p-10 rounded-3xl md:rounded-4xl flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch shadow-xl mx-auto">
             
             {/* Left Side - Phone & Email */}
-            <div className="w-full lg:w-6/12">
-              {/* <h2 className="text-3xl font-semibold text-brand-primary mb-4">
-                Phone & Email
-              </h2> */}
-              <div className="bg-gray-100 p-5 rounded-3xl">
+            <div className="w-full lg:w-6/12 flex flex-col">
+              <div className="bg-gray-100 p-5 rounded-3xl flex-1 flex flex-col">
+                <h2 className="text-3xl font-semibold text-brand-primary mb-4">
+                 Greetings Task
+                </h2>
                
-                <h3 className="text-xl text-brand-accent font-medium">
+                <h3 className="text-xl text-gray-800 font-semibold">
                   Phone
                 </h3>
-                <p className="text-gray-600 font-light mt-1">
-                  {/* {phoneText || "+8801349523464"}
-                  +8801349523464 */}
-                  {site_phone}
-
+                <p className="text-gray-900 font-medium mt-1">
+                  {phone1}
                 </p>
-                <p className="text-gray-600 font-light mt-1">
-                  {/* {phoneText2 || "+8801630082236"} */}
-                  {/* +8801630082236 */}
-                  {footer_phone}
+                <p className="text-gray-900 font-medium mt-1">
+                  {phone2}
                 </p>
 
-                {/* Email - নিচে নিচে */}
-                <h3 className="text-xl text-brand-accent font-medium mt-4">
+                <h3 className="text-xl text-gray-800 font-semibold mt-4">
                   E-mail
                 </h3>
-                <p className="text-gray-600 font-light mt-1">
-                  {site_email}
+                <p className="text-gray-900 font-medium mt-1">
+                  {email1}
                 </p>
-                <p className="text-gray-600 font-light mt-1">
-                  {footer_email}
+                <p className="text-gray-900 font-medium mt-1">
+                  {email2}
                 </p>
               </div>
             </div>
 
             {/* Right Side - Contact Form */}
             <div className="w-full lg:w-6/12 flex flex-col">
-              <h2 className="text-3xl font-semibold text-brand-primary mb-4">
-                Send Us a Message
-              </h2>
-              <ContactForm />
+              <div className="bg-gray-100 p-5 rounded-3xl flex-1 flex flex-col">
+                <h2 className="text-3xl font-semibold text-brand-primary mb-4">
+                  Send Us a Message
+                </h2>
+                <ContactForm />
+              </div>
             </div>
             
           </div>
