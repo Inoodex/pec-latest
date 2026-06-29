@@ -64,7 +64,7 @@ const HeroAnimation = ({ hero_sliders }) => {
               alt={"london-wheel.png"}
             />
           </div>
-          <div className="absolute  z-0 w-85 left-1/2 bottom-1 md:-bottom-8 md:w-120 lg:w-145 lg:bottom-15 lg:left-1/2 -translate-x-1/2 2xl:w-155 flex justify-center lg:block opacity-80 lg:opacity-100">
+          <div className="absolute z-20 w-85 left-1/2 bottom-1 md:-bottom-8 md:w-120 lg:w-145 lg:bottom-15 lg:left-1/2 -translate-x-1/2 2xl:w-155 flex justify-center lg:block opacity-80 lg:opacity-100">
             <Image
               src={"/images/bg-stand.webp"}
               width={840}

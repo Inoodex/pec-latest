@@ -57,8 +57,8 @@ const Topbar = () => {
   const hotlineText = sitePhone ? `Hotline: ${sitePhone}` : "";
 
   return (
-    <div className="bg-gray-900 text-gray-300 text-xs sm:text-sm py-2 px-4 md:px-8 lg:px-16 hidden sm:block font-normal tracking-wide">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-900 text-gray-300 text-xs sm:text-sm py-2 hidden sm:block font-normal tracking-wide">
+      <div className="container mx-auto px-2">
         <ul className="flex justify-between items-center w-full gap-4 flex-wrap sm:flex-nowrap">
           <li className="opacity-90">
             Welcome to {siteName}
