@@ -62,19 +62,20 @@ const Navbar = () => {
             href: "/study-abroad",
             children: [
                 {
-                    name: "Study in the Asia",
+                    name: "Asia",
                     href: "/study-abroad/asia",
                 },
-                {
-                    name: "Study in the Europe",
-                    href: "/study-abroad/europe",
-                },
-                {
-                    name: "Study in the Australia",
+                 {
+                    name: "Australia",
                     href: "/study-abroad/australia",
                 },
                 {
-                    name: "Study in the North America",
+                    name: "Europe",
+                    href: "/study-abroad/europe",
+                },
+               
+                {
+                    name: "North America",
                     href: "/study-abroad/north-america",
                 },
             ],
@@ -304,7 +305,7 @@ const handleLogin = async (e) => {
                                 >
                                     <Link
                                         href={item.href}
-                                        className="flex items-center gap-1 text-sm xl:text-lg font-medium text-(--nav-text) hover:text-brand-muted transition-all py-2"
+                                        className="flex items-center gap-1 text-sm xl:text-lg font-normal text-(--nav-text) hover:text-brand-muted transition-all py-2"
                                     >
                                         {item.name}
                                         {item.children && (

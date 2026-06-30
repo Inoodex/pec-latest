@@ -57,24 +57,24 @@ const Topbar = () => {
   const hotlineText = sitePhone ? `Hotline: ${sitePhone}` : "";
 
   return (
-    <div className="bg-gray-900 text-gray-300 text-xs sm:text-sm py-2 hidden sm:block font-normal tracking-wide">
+    <div className="bg-white text-brand-primary text-xs sm:text-sm py-2  hidden sm:block font-normal tracking-wide">
       <div className="container mx-auto px-2">
-        <ul className="flex justify-between items-center w-full gap-4 flex-wrap sm:flex-nowrap">
-          <li className="opacity-90">
+        <ul className="flex justify-between  items-center w-full gap-4 flex-wrap sm:flex-nowrap  ">
+          <li className="opacity-90 ">
             Welcome to {siteName}
           </li>
 
           <div className="flex items-center justify-center gap-3">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="border border-gray-500 hover:border-white text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 font-medium py-1 px-4 rounded-full transition duration-200 cursor-pointer text-xs md:text-sm shadow-sm"
+              className="border border-brand-primary bg-brand-primary hover:bg-brand-accent text-white font-medium py-1 px-4 rounded-full transition duration-200 cursor-pointer text-xs md:text-sm shadow-sm flex items-center gap-1"
             >
               Apply for Appointment
             </button>
             
             <Link
               href={"/apply-now"}
-              className="border border-gray-500 hover:border-white text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 font-medium py-1 px-4 rounded-full transition duration-200 cursor-pointer text-xs md:text-sm shadow-sm flex items-center gap-1"
+              className="border border-brand-primary bg-brand-primary hover:bg-brand-accent text-white font-medium py-1 px-4 rounded-full transition duration-200 cursor-pointer text-xs md:text-sm shadow-sm flex items-center gap-1"
             >
               Apply Now
             </Link>
@@ -90,7 +90,7 @@ const Topbar = () => {
             {sitePhone && (
               <a 
                 href={`tel:${sitePhone}`}
-                className="flex items-center gap-1 hover:text-white transition-colors"
+                className="flex items-center gap-1 hover:text-brand-accent transition-colors"
               >
                 <FaPhoneAlt className="text-[10px]" />
             <span>Hotline:{sitePhone},{footer_phone}</span>

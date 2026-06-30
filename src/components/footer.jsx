@@ -356,13 +356,15 @@ const Footer = () => {
                                     </a> */}
                                 </>
                                 
-                            )}                            
+                            )}     
+                            
+                           
                         </div>
                         <hr className="my-2 text-gray-400" />
-                        <h2 className="text-sm my-3 font-semibold">
+                        {/* <h2 className="text-sm my-3 font-semibold">
                             SUBSCRIBE OUR NEWSLETTER
-                        </h2>
-                        <div className="border rounded-md overflow-hidden relative flex items-center">
+                        </h2> */}
+                        {/* <div className="border rounded-md overflow-hidden relative flex items-center">
                             <input
                                 type="email"
                                 placeholder="Email Address"
@@ -371,17 +373,17 @@ const Footer = () => {
                             <button className="flex absolute right-2 cursor-pointer bg-white justify-center text-brand-primary">
                                 <Send strokeWidth={1.75} size={20} />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
                 {/* Bottom Footer */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-gray-400 text-sm border-t border-gray-800 pt-6">
+                <div className="flex flex-col md:flex-row justify-start center gap-8 text-gray-400 text-sm border-t border-gray-800 pt-6">
                     <p>{footer_info?.copyright || "© 2024 PECEDU Global. All rights reserved."}</p>
-                    <div className="flex gap-8">
+                    <div className="flex gap-8 ">
                         <Link 
                             href="https://inoodex.com/" 
-                            className="hover:text-white transition-colors"
+                            className="text-gray-300 hover:text-white transition-colors text-sm flex text-left items-center gap-2 group mt-1"
                             target="_blank"            
                             rel="noopener noreferrer"  
                         >
