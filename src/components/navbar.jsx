@@ -127,65 +127,7 @@ const Navbar = () => {
     const [loginSuccess, setLoginSuccess] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    // const handleLogin = async (e) => {
-    //     e.preventDefault();
-    //     setLoginError("");
-    //     setLoginSuccess("");
-    //     setLoginLoading(true);
-    //     try {
-    //         const res = await loginPost({ email, password });
-    //         if (res?.success) {
-    //             localStorage.setItem("token", res.token);
-    //             localStorage.setItem("user", JSON.stringify(res.data));
-    //             setLoginSuccess(
-    //                 res?.message || "Login successful! Welcome back.",
-    //             );
-    //             setEmail("");
-    //             setPassword("");
-    //             setTimeout(() => {
-    //                 setIsLoginOpen(false);
-    //                 setLoginSuccess("");
-    //             }, 2000);
-    //         } else {
-    //             setLoginError(
-    //                 res?.message || "Login failed. Please try again.",
-    //             );
-    //         }
-    //     } catch (err) {
-    //         setLoginError("Something went wrong. Please try again.");
-    //     } finally {
-    //         setLoginLoading(false);
-    //     }
-    // };
-
-
-//     const handleLogin = async (e) => {
-//     e.preventDefault();
-//     setLoginError("");
-//     setLoginSuccess("");
-//     setLoginLoading(true);
-//     try {
-//       const res = await loginPost({ email, password });
-//       if (res?.success) {
-//         localStorage.setItem("token", res.token);
-//         localStorage.setItem("user", JSON.stringify(res.data));
-//         setLoginSuccess(res?.message || "Login successful! Welcome back.");
-//         setEmail("");
-//         setPassword("");
-//         setTimeout(() => {
-//           setIsLoginOpen(false);
-//           setLoginSuccess("");
-//           redirect(`${res.redirect_url}?token=${res.token}`);
-//         }, 1000);
-//       } else {
-//         setLoginError(res?.message || "Login failed. Please try again.");
-//       }
-//     } catch (err) {
-//       setLoginError("Something went wrong. Please try again.");
-//     } finally {
-//       setLoginLoading(false);
-//     }
-//   };
+    
 const handleLogin = async (e) => {
   e.preventDefault();
   setLoginError("");
@@ -278,8 +220,8 @@ const handleLogin = async (e) => {
     }, [isLoginOpen]);
 
     return (
-        <nav className=" w-full  top-4 bg-(--nav-background) ">
-            <div className="backdrop-blur-xl  transition-colors duration-200 px-2">
+        <nav className=" w-full  text-4xl top-4 bg-(--nav-background) ">
+            <div className="backdrop-blur-xl transition-colors duration-200 px-2">
                 <div className="container mx-auto relative">
                     <div className="w-full flex items-center justify-between  py-3  ">
                         <Link
@@ -583,11 +525,11 @@ const handleLogin = async (e) => {
                                                             idx,
                                                         )
                                                     }
-                                                    className="w-full flex items-center justify-between py-4 px-2 text-white font-semibold"
+                                                    className="w-full flex items-center justify-between py-3 px-2 text-sm text-white font-normal"
                                                 >
                                                     {item.name}
                                                     <ChevronDown
-                                                        size={18}
+                                                        size={16}
                                                         className={`transition-transform ${mobileExpanded === idx ? "rotate-180" : ""}`}
                                                     />
                                                 </button>
@@ -595,7 +537,7 @@ const handleLogin = async (e) => {
                                                 <Link
                                                     href={item.href}
                                                     onClick={closeMobileMenu}
-                                                    className="w-full flex items-center justify-between py-4 px-2 text-white font-semibold"
+                                                    className="w-full flex items-center justify-between py-3 px-2 text-sm text-white font-normal"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -619,7 +561,7 @@ const handleLogin = async (e) => {
                                                             }}
                                                             className="overflow-hidden bg-black/15 rounded-xl mb-2"
                                                         >
-                                                            <div className="flex flex-col py-2 px-4 gap-3">
+                                                            <div className="flex flex-col py-1.5 px-3 gap-2">
                                                                 {item.children.map(
                                                                     (
                                                                         child,
@@ -635,7 +577,7 @@ const handleLogin = async (e) => {
                                                                             onClick={
                                                                                 closeMobileMenu
                                                                             }
-                                                                            className="text-white text-sm py-1"
+                                                                            className="text-white/80 text-xs py-1"
                                                                         >
                                                                             {
                                                                                 child.name
@@ -652,7 +594,7 @@ const handleLogin = async (e) => {
                                     <Link
                                         href={"/apply-now"}
                                         onClick={closeMobileMenu}
-                                        className="px-4 flex items-center gap-1 py-2.5 bg-black/10 text-white justify-center rounded-xl font-semibold"
+                                        className="px-4 flex items-center gap-1 py-2 bg-black/10 text-white justify-center rounded-xl text-sm font-normal"
                                     >
                                         Apply Now
                                     </Link>

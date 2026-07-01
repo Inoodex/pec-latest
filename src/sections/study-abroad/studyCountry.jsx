@@ -65,7 +65,7 @@ const StudyCountry = ({ continent }) => {
                                     }}
                                     className="text-4xl absolute z-10 top-1/2 left-1/2 -translate-1/2 text-center font-bold text-brand-contrast"
                                 >
-                                    {continent.element_title}
+                                    {continent.element_title === "Australia" ? "Explore Australia" : continent.element_title}
                                 </motion.h1>
                                 <Image
                                     src={`${apiUrl}/storage/${continent.image_paths[0]}`}

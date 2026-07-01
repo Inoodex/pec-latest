@@ -11,33 +11,10 @@ import {
 } from "lucide-react";
 import Button from "@/components/button";
 
-// Dynamic page selection based on route or prop
-const PAGE_URLS = {
-  1: "https://www.apps.peceduglobal.com/api/public/pages/promotional-page-1",
-  2: "https://www.apps.peceduglobal.com/api/public/pages/promotional-page-2",
-  3: "https://www.apps.peceduglobal.com/api/public/pages/promotional-page-3",
-  4: "https://www.apps.peceduglobal.com/api/public/pages/promotional-page-4"
-};
-
-// Block mapping for different page types
-const blockMap = {
-  "offer-summary": "offerSummary",
-  "academic-requirement": "academicRequirement",
-  "english-requirement": "englishRequirement",
-  "promotional-living-cost": "livingCost",
-  "promotional-tuition-fees": "tuitionFees",
-  "promotional-part-time-work": "partTimeWork",
-  "promotional-scholarship": "scholarship",
-  "living-cost-test": "travel",
-  "Student Life": "studentLife",
-  "Student Life Block": "studentLifeBlock",
-  "Tuition & Fees": "tuition",
-  "ab": "ab",
-  "ew": "ew"
-};
+const API_BASE = "https://www.apps.peceduglobal.com/api/public/pages";
 
 // --- INFO CARD COMPONENT ---
-const InfoCard = ({ feature, index, variant = "default" }) => {
+const InfoCard = ({ feature, index }) => {
   const getIcon = () => {
     const title = feature.element_title?.toLowerCase() || "";
     if (title.includes("travel") || title.includes("trip") || title.includes("journey") || title.includes("duration")) 
@@ -71,24 +48,16 @@ const InfoCard = ({ feature, index, variant = "default" }) => {
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.3, delay: index * 0.08 }}
-      className={`flex items-start gap-3 p-4 rounded-xl border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
-        variant === "featured" 
-          ? "bg-brand-primary/5 border-brand-primary/20" 
-          : "bg-white border-gray-100"
-      }`}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="group relative flex items-start gap-2 p-2.5 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-white/15 hover:border-white/20 transition-all duration-300"
     >
-      <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-        variant === "featured" 
-          ? "bg-brand-primary/20" 
-          : "bg-brand-primary/10"
-      }`}>
-        {getIcon()}
+      <div className="relative w-7 h-7 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-brand-primary/30 to-brand-primary/10 group-hover:from-brand-primary/40 group-hover:to-brand-primary/20 transition-all duration-300">
+        <div className="[&>svg]:!w-3.5 [&>svg]:!h-3.5 sm:[&>svg]:!w-5 sm:[&>svg]:!h-5">{getIcon()}</div>
       </div>
       <div className="flex-1 min-w-0">
-        <h4 className="text-sm font-semibold text-gray-800">{feature.element_title}</h4>
+        <h4 className="text-xs sm:text-sm font-semibold text-white leading-tight">{feature.element_title}</h4>
         {feature.element_body && (
-          <div className="text-xs text-gray-500 mt-0.5 line-clamp-2">
+          <div className="text-[10px] sm:text-xs text-white/60 mt-0.5 line-clamp-2 leading-tight">
             {getDisplayText(feature.element_body)}
           </div>
         )}
@@ -100,11 +69,11 @@ const InfoCard = ({ feature, index, variant = "default" }) => {
 // --- APPLY NOW SECTION (Beautiful Design) ---
 const ApplyNowSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#191970] via-[#1a1a6e] to-[#0d0d4b] py-20 md:py-28 px-4">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-brand-primary/5 to-transparent blur-3xl"></div>
+    <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 px-4"
+      style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
+    >
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
       
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.div
@@ -113,130 +82,88 @@ const ApplyNowSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Badge */}
-          {/* <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-2 rounded-full text-xs font-medium text-white/80 mb-6">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            Limited Seats Available
-          </div> */}
-
-          {/* Title */}
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             Ready to Start Your <br />
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-  
             <span className="text-white">Study Abroad Journey?</span>
           </h2>
-          </h2>
           
-          {/* Description */}
-          <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
             Take the first step towards your dream education. Our expert team is here to guide you through the entire process.
           </p>
 
-          {/* Button with Glow Effect */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="relative inline-block"
           >
-            {/* Glow Effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-blue-500 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute -inset-1 rounded-full blur-xl opacity-70"
+              style={{background: 'linear-gradient(to right, var(--brand-primary), var(--brand-accent))'}}
+            />
             
             <Link
               href="/apply-now"
-              className="relative inline-flex items-center gap-3 bg-white text-brand-primary hover:bg-white/90 px-10 py-4 md:px-14 md:py-5 rounded-full text-base md:text-lg font-semibold shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-all duration-300"
+              className="relative inline-flex items-center gap-2 sm:gap-3 bg-white text-brand-primary hover:bg-white/90 px-6 sm:px-10 md:px-14 py-3 sm:py-4 md:py-5 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-2xl transition-all duration-300"
             >
-              <Send className="w-5 h-5 md:w-6 md:h-6" />
+              <Send className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               Apply Now
-              <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </Link>
           </motion.div>
-
-          {/* Trust Badges */}
-          {/* <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-white/40 text-xs">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-              <span>No Application Fee</span>
-            </div>
-            <div className="w-px h-4 bg-white/10 hidden sm:block"></div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-              <span>Free Consultation</span>
-            </div>
-            <div className="w-px h-4 bg-white/10 hidden sm:block"></div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
-              <span>Quick Response</span>
-            </div>
-          </div> */}
         </motion.div>
       </div>
     </section>
   );
 };
 
-// --- MAIN COMPONENT ---
 export default function PromotionalSection({ pageNumber = 1 }) {
-  const [data, setData] = useState({ 
-    blocks: [], 
-    mappedBlocks: {},
-    allElements: [],
-    loading: true,
-    error: null
-  });
+  const [blocks, setBlocks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPageData = async () => {
-      try {
-        const url = PAGE_URLS[pageNumber] || PAGE_URLS[1];
-        const response = await fetch(url);
-        const result = await response.json();
-        
-        if (result.success) {
-          const blocks = result?.data?.blocks || [];
-          const mappedBlocks = {};
-          const allElements = [];
-          
-          blocks.forEach(b => {
-            const key = blockMap[b.block_type] || b.block_type;
-            mappedBlocks[key] = b;
-            
-            if (b.elements && b.elements.length > 0) {
-              allElements.push(...b.elements);
-            }
-          });
-          
-          setData({ blocks, mappedBlocks, allElements, loading: false, error: null });
+    if (!pageNumber) return;
+    setLoading(true);
+    fetch(`${API_BASE}/promotional-page-${pageNumber}`)
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
+          setBlocks(res?.data?.blocks || []);
         } else {
-          setData({ ...data, loading: false, error: "Failed to load data" });
+          setError("Failed to load data");
         }
-      } catch (error) {
-        setData({ ...data, loading: false, error: "Network error" });
-      }
-    };
-
-    fetchPageData();
+      })
+      .catch(() => setError("Network error"))
+      .finally(() => setLoading(false));
   }, [pageNumber]);
 
-  const { blocks, mappedBlocks, allElements, loading, error } = data;
-  const reason = blocks?.[0];
+  const offerSummaryBlock = blocks?.find(block => block.block_type === "offer-summary");
+  const hero = offerSummaryBlock || blocks?.[0];
+
+  const resolvedHeroImage = (() => {
+    const img = offerSummaryBlock?.settings?.section_image || blocks?.[0]?.settings?.section_image;
+    if (!img) return "/study_abroad/study-bg.webp";
+    if (img.startsWith("http")) return img;
+    const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "");
+    return `${siteUrl}${img}`;
+  })();
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
+        <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
-  if (error) {
+  if (error || !blocks?.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <p className="text-red-500">{error}</p>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#191970] via-[#1a1a6e] to-[#0d0d4b]">
+        <div className="text-center px-6">
+          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Briefcase className="w-8 h-8 text-white/60" />
+          </div>
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">No Promotional Data</h1>
+          <p className="text-white/60 text-sm">No promotional content available for this page.</p>
         </div>
       </div>
     );
@@ -244,85 +171,77 @@ export default function PromotionalSection({ pageNumber = 1 }) {
 
   return (
     <>
-    {/* HERO SECTION */}
-    <section className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-br from-[#191970] via-[#1a1a6e] to-[#0d0d4b]">
-      {/* LEFT - Full Screen Image */}
-      {reason && (
-        <div className="lg:w-1/2 w-full lg:min-h-screen relative overflow-hidden">
-          <div className="w-full h-[300px] lg:h-full lg:absolute lg:inset-0">
-            <Image
-              src={reason.settings?.section_image || "/study_abroad/study-bg.webp"}
-              alt={reason.section_title || "Study in Malaysia"}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d4b]/50 to-transparent" />
-            
-            {/* Floating Badge */}
-            <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <Award className="w-5 h-5 text-green-600" />
-                </div>
-                <div>
-              
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="relative min-h-[calc(100vh-115px)] lg:min-h-[calc(100vh-130px)] flex flex-col lg:flex-row pt-[115px] sm:pt-[130px] lg:pt-[130px]"
+      style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
+    >
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 w-[400px] h-[400px] bg-white/[0.03] rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+      {/* Left Column (Sticky Image on Desktop) */}
+      <div className="lg:w-[52%] w-full lg:sticky lg:top-[130px] lg:h-[calc(100vh-130px)] flex items-center justify-center p-3 sm:p-5 lg:p-6 z-20">
+        <div className="w-full aspect-[4/3] lg:aspect-[4/5] max-h-[60vh] lg:max-h-[85vh] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+          <Image
+            src={resolvedHeroImage}
+            alt={hero?.section_title || "Study Abroad"}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
         </div>
-      )}
+      </div>
 
-      {/* RIGHT - Content */}
-      <div className="lg:w-1/2 w-full lg:min-h-screen flex items-center">
-        <div className="w-full max-w-xl mx-auto px-6 py-12 lg:py-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {reason && (
-              <>
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-medium text-white/80 mb-4">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  Page {pageNumber}
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  {reason.section_title || "Study in Malaysia"}
-                </h1>
-              </>
-            )}
-
-            {reason?.section_description && (
-              <div className="text-white/80 text-sm leading-relaxed mb-8"
-                dangerouslySetInnerHTML={{ __html: reason.section_description }}
+      {/* Right Column (Scrolls naturally) */}
+      <div className="lg:w-[48%] w-full relative z-10">
+        <div className="w-full max-w-xl mx-auto px-4 sm:px-6 py-6 lg:py-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 leading-snug">
+              {hero?.section_title || "Study Abroad"}
+            </h1>
+            <div className="w-8 h-0.5 bg-gradient-to-r from-brand-primary to-blue-500 rounded-full mb-2 sm:mb-4" />
+            {hero?.section_description && (
+              <div className="text-white/70 text-[11px] sm:text-sm leading-relaxed mb-5 lg:mb-12 line-clamp-3 sm:line-clamp-none"
+                dangerouslySetInnerHTML={{ __html: hero.section_description }}
               />
             )}
-
-            {/* Display all elements in grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {allElements.length > 0 ? (
-                allElements.slice(0, 6).map((feature, index) => (
-                  <InfoCard key={index} feature={feature} index={index} />
-                ))
-              ) : (
-                <div className="col-span-2 text-white/50 text-sm text-center py-8">
-                  No data available
-                </div>
-              )}
-            </div>
-
-            {/* Action Buttons - Only Learn More */}
-            <div className="flex flex-wrap gap-3">
-           
-            </div>
           </motion.div>
+
+          {blocks
+            .filter((block) => block.block_type !== "offer-summary")
+            .map((block) => {
+              const hasElements = block.elements?.length > 0;
+              const hasDescription = block.section_description && block.section_description.replace(/<[^>]*>/g, '').trim().length > 0;
+              
+              if (!hasElements && !hasDescription) return null;
+
+              return (
+                <div key={block.id} className="mb-5 lg:mb-10">
+                  {block.section_title && (
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-1 h-4 bg-gradient-to-b from-brand-primary to-blue-500 rounded-full" />
+                      <h2 className="text-xs sm:text-base font-semibold text-white/90">{block.section_title}</h2>
+                    </div>
+                  )}
+                  {hasDescription && (
+                    <div 
+                      className="text-white/75 text-[11px] sm:text-sm leading-relaxed mb-3 [&_p]:mb-2 last:[&_p]:mb-0"
+                      dangerouslySetInnerHTML={{ __html: block.section_description }}
+                    />
+                  )}
+                  {hasElements && (
+                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
+                      {block.elements.map((el, ei) => (
+                        <InfoCard key={el.id || ei} feature={el} index={ei} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
         </div>
       </div>
     </section>
 
-    {/* APPLY NOW SECTION - Beautiful Design */}
     <ApplyNowSection />
     </>
   );

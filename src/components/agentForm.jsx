@@ -205,13 +205,14 @@ const AgentForm = () => {
                                 className="w-full mt-1 p-2 border border-gray-300 rounded-md text-black"
                             >
                                 <option value="">Select position</option>
+                                <option value="Admission Counselor">Admission Counselor</option>
+                                <option value="Recruitment Agent">Recruitment Agent</option>
+                                <option value="Education Consultant Partner">Education Consultant Partner</option>
+                                <option value="Regional Representative">Regional Representative</option>
+                                <option value="Referral Partner">Referral Partner</option>
+                                <option value="Marketing Ambassador">Marketing Ambassador</option>
                                 <option value="consultant">Consultant</option>
-                                <option value="senior_consultant">
-                                    Senior Consultant
-                                </option>
-                                <option value="admission_counselor">
-                                    Admission Counselor
-                                </option>
+                                <option value="senior_consultant">Senior Consultant</option>
                                 <option value="intern">Intern</option>
                                 <option value="">Others</option>
                             </select>
