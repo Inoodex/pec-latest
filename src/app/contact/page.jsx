@@ -25,10 +25,18 @@ const Contact = async () => {
   const site_map = siteData?.site_settings?.map_url || "";
   const site_address = siteData?.site_settings?.contact_address || "Mirpur 11, Dhaka, Bangladesh";
 
-  const phone1 = site_phone || "+8801349523464";
-  const phone2 = footer_phone || "+8801630082236";
-  const email1 = site_email || "pec.info.bd@gmail.com";
-  const email2 = footer_email || "info@peceduglobal.com";
+  const phoneNumbers = site_phone ? site_phone.split(',').map(p => p.trim()) : [];
+  const footerPhones = footer_phone ? footer_phone.split(',').map(p => p.trim()) : [];
+  const allPhones = [...phoneNumbers, ...footerPhones];
+
+  const emailAddresses = site_email ? site_email.split(',').map(e => e.trim()) : [];
+  const footerEmails = footer_email ? footer_email.split(',').map(e => e.trim()) : [];
+  const allEmails = [...emailAddresses, ...footerEmails];
+
+  const phone1 = allPhones[0] || "+8801349523464";
+  const phone2 = allPhones[1] || "+8801630082236";
+  const email1 = allEmails[0] || "pec.info.bd@gmail.com";
+  const email2 = allEmails[1] || "info@peceduglobal.com";
   const mapLink = site_map || "https://www.google.com/maps";
   const address = site_address || "Mirpur 11, Dhaka, Bangladesh";
 

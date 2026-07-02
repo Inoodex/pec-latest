@@ -281,10 +281,10 @@ const LiveChat = () => {
     }, [pusher]);
 
     return (
-        <div className="pointer-events-none fixed inset-x-3 bottom-4 z-50 sm:inset-x-auto sm:right-5 sm:bottom-6">
+        <div className="pointer-events-none fixed inset-x-3 bottom-20 sm:bottom-24 z-50 sm:inset-x-auto sm:right-5">
             <div className="pointer-events-auto relative ml-auto w-fit">
                 {isOpen && (
-                    <div className="absolute right-0 bottom-full flex max-h-[calc(100vh-7rem)] w-[calc(100vw-1.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-brand-accent bg-background shadow-2xl sm:w-96">
+                    <div className="absolute right-0 bottom-full flex max-h-[calc(100vh-12rem)] w-[calc(100vw-1.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-brand-accent bg-background shadow-2xl sm:w-96">
                         <div className="flex shrink-0 items-center justify-between bg-brand-primary px-4 py-3 text-brand-contrast">
                             <div>
                                 <p className="text-sm font-semibold">PECEDU Live Chat</p>

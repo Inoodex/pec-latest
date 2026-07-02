@@ -227,7 +227,7 @@ const Footer = () => {
                             Need Help?
                         </h2>
                         <div>
-                            {/* Dynamic Phone Numbers */}
+                           {/* Dynamic Phone Numbers */}
                             {phoneNumbers.length > 0 ? (
                                 phoneNumbers.map((phone, index) => (
                                     <a
@@ -378,7 +378,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Footer */}
-                <div className="flex flex-col md:flex-row justify-start center gap-8 text-gray-400 text-sm border-t border-gray-800 pt-6">
+                <div className="flex flex-col md:flex-row justify-between gap-8 text-gray-400 text-sm border-t border-gray-800 pt-6">
                     <p>{footer_info?.copyright || "© 2024 PECEDU Global. All rights reserved."}</p>
                     <div className="flex gap-8 ">
                         <Link 

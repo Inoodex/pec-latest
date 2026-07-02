@@ -49,15 +49,15 @@ const InfoCard = ({ feature, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="group relative flex items-start gap-2 p-2.5 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-white/15 hover:border-white/20 transition-all duration-300"
+      className="group relative flex items-start gap-2.5 p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-white/15 hover:border-white/20 transition-all duration-300 h-full"
     >
-      <div className="relative w-7 h-7 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-brand-primary/30 to-brand-primary/10 group-hover:from-brand-primary/40 group-hover:to-brand-primary/20 transition-all duration-300">
-        <div className="[&>svg]:!w-3.5 [&>svg]:!h-3.5 sm:[&>svg]:!w-5 sm:[&>svg]:!h-5">{getIcon()}</div>
+      <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-brand-primary/30 to-brand-primary/10 group-hover:from-brand-primary/40 group-hover:to-brand-primary/20 transition-all duration-300">
+        <div className="[&>svg]:!w-4 [&>svg]:!h-4 sm:[&>svg]:!w-5 sm:[&>svg]:!h-5">{getIcon()}</div>
       </div>
       <div className="flex-1 min-w-0">
         <h4 className="text-xs sm:text-sm font-semibold text-white leading-tight">{feature.element_title}</h4>
         {feature.element_body && (
-          <div className="text-[10px] sm:text-xs text-white/60 mt-0.5 line-clamp-2 leading-tight">
+          <div className="text-[10px] sm:text-xs text-white/60 mt-1 line-clamp-3 leading-relaxed">
             {getDisplayText(feature.element_body)}
           </div>
         )}
@@ -66,14 +66,14 @@ const InfoCard = ({ feature, index }) => {
   );
 };
 
-// --- APPLY NOW SECTION (Beautiful Design) ---
+// --- APPLY NOW SECTION ---
 const ApplyNowSection = () => {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 px-4"
+    <section className="relative overflow-hidden py-12 sm:py-16 md:py-24 px-4"
       style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
     >
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+      <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
       
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.div
@@ -82,12 +82,12 @@ const ApplyNowSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
-            Ready to Start Your <br />
-            <span className="text-white">Study Abroad Journey?</span>
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+            Ready to Start Your{" "}
+            <span className="block sm:inline">Study Abroad Journey?</span>
           </h2>
           
-          <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+          <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
             Take the first step towards your dream education. Our expert team is here to guide you through the entire process.
           </p>
 
@@ -99,14 +99,13 @@ const ApplyNowSection = () => {
             <div className="absolute -inset-1 rounded-full blur-xl opacity-70"
               style={{background: 'linear-gradient(to right, var(--brand-primary), var(--brand-accent))'}}
             />
-            
             <Link
               href="/apply-now"
               className="relative inline-flex items-center gap-2 sm:gap-3 bg-white text-brand-primary hover:bg-white/90 px-6 sm:px-10 md:px-14 py-3 sm:py-4 md:py-5 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-2xl transition-all duration-300"
             >
-              <Send className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
               Apply Now
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </motion.div>
         </motion.div>
@@ -170,66 +169,83 @@ export default function PromotionalSection({ pageNumber = 1 }) {
   }
 
   return (
-    <>
-    <section className="relative min-h-[calc(100vh-115px)] lg:min-h-[calc(100vh-130px)] flex flex-col lg:flex-row pt-[115px] sm:pt-[130px] lg:pt-[130px]"
-      style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
-    >
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 w-[400px] h-[400px] bg-white/[0.03] rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+    <div className="overflow-x-hidden">
 
-      {/* Left Column (Sticky Image on Desktop) */}
-      <div className="lg:w-[52%] w-full lg:sticky lg:top-[130px] lg:h-[calc(100vh-130px)] flex items-center justify-center p-3 sm:p-5 lg:p-6 z-20">
-        <div className="w-full aspect-[4/3] lg:aspect-[4/5] max-h-[60vh] lg:max-h-[85vh] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-          <Image
-            src={resolvedHeroImage}
-            alt={hero?.section_title || "Study Abroad"}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-        </div>
-      </div>
+      {/* ── MOBILE LAYOUT: stacked (image → content) ── */}
+      <section
+        className="relative flex flex-col lg:hidden pt-[100px] sm:pt-[115px]"
+        style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
+      >
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-white/[0.03] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 w-[200px] h-[200px] bg-white/[0.03] rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-      {/* Right Column (Scrolls naturally) */}
-      <div className="lg:w-[48%] w-full relative z-10">
-        <div className="w-full max-w-xl mx-auto px-4 sm:px-6 py-6 lg:py-16">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 leading-snug">
+        {/* Mobile: Title + description ABOVE image */}
+        <div className="relative z-10 px-4 sm:px-6 pt-4 pb-3">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1.5 leading-tight">
               {hero?.section_title || "Study Abroad"}
             </h1>
-            <div className="w-8 h-0.5 bg-gradient-to-r from-brand-primary to-blue-500 rounded-full mb-2 sm:mb-4" />
+            <div className="w-8 h-0.5 bg-gradient-to-r from-white/80 to-blue-300 rounded-full mb-3" />
             {hero?.section_description && (
-              <div className="text-white/70 text-[11px] sm:text-sm leading-relaxed mb-5 lg:mb-12 line-clamp-3 sm:line-clamp-none"
+              <div
+                className="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3"
                 dangerouslySetInnerHTML={{ __html: hero.section_description }}
               />
             )}
           </motion.div>
+        </div>
 
+        {/* Mobile: Hero Image — compact height */}
+        <div className="relative z-10 px-4 sm:px-6 pb-4">
+          <div className="w-full aspect-[16/9] relative rounded-2xl overflow-hidden shadow-xl border border-white/10">
+            <Image
+              src={resolvedHeroImage}
+              alt={hero?.section_title || "Study Abroad"}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
+          </div>
+        </div>
+
+        {/* Mobile: Blocks */}
+        <div className="relative z-10 px-4 sm:px-6 pb-8 space-y-5">
           {blocks
-            .filter((block) => block.block_type !== "offer-summary")
+            .filter(block => block.block_type !== "offer-summary")
             .map((block) => {
               const hasElements = block.elements?.length > 0;
               const hasDescription = block.section_description && block.section_description.replace(/<[^>]*>/g, '').trim().length > 0;
-              
-              if (!hasElements && !hasDescription) return null;
+              const blockImage = block.settings?.section_image;
+              const resolvedBlockImage = blockImage
+                ? blockImage.startsWith("http") ? blockImage
+                  : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${blockImage}`
+                : null;
+
+              if (!hasElements && !hasDescription && !resolvedBlockImage) return null;
 
               return (
-                <div key={block.id} className="mb-5 lg:mb-10">
+                <div key={block.id}>
                   {block.section_title && (
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-1 h-4 bg-gradient-to-b from-brand-primary to-blue-500 rounded-full" />
-                      <h2 className="text-xs sm:text-base font-semibold text-white/90">{block.section_title}</h2>
+                      <div className="w-1 h-4 bg-gradient-to-b from-white/80 to-blue-300 rounded-full" />
+                      <h2 className="text-sm font-semibold text-white/90">{block.section_title}</h2>
+                    </div>
+                  )}
+                  {resolvedBlockImage && (
+                    <div className="w-full aspect-[16/7] relative rounded-xl overflow-hidden shadow-lg border border-white/10 mb-3">
+                      <Image src={resolvedBlockImage} alt={block.section_title || "Section image"} fill className="object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     </div>
                   )}
                   {hasDescription && (
-                    <div 
-                      className="text-white/75 text-[11px] sm:text-sm leading-relaxed mb-3 [&_p]:mb-2 last:[&_p]:mb-0"
+                    <div
+                      className="text-white/75 text-xs leading-relaxed mb-3 [&_p]:mb-1.5"
                       dangerouslySetInnerHTML={{ __html: block.section_description }}
                     />
                   )}
                   {hasElements && (
-                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {block.elements.map((el, ei) => (
                         <InfoCard key={el.id || ei} feature={el} index={ei} />
                       ))}
@@ -239,10 +255,94 @@ export default function PromotionalSection({ pageNumber = 1 }) {
               );
             })}
         </div>
-      </div>
-    </section>
+      </section>
 
-    <ApplyNowSection />
-    </>
+      {/* ── DESKTOP LAYOUT: sticky image left + scrolling right ── */}
+      <section
+        className="relative hidden lg:flex flex-row min-h-[calc(100vh-130px)] pt-[130px]"
+        style={{background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-accent))'}}
+      >
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 w-[400px] h-[400px] bg-white/[0.03] rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+        {/* Left — Sticky Image */}
+        <div className="w-[52%] sticky top-[130px] h-[calc(100vh-130px)] flex items-center justify-center p-6 z-20">
+          <div className="w-full aspect-[4/5] max-h-[85vh] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+            <Image
+              src={resolvedHeroImage}
+              alt={hero?.section_title || "Study Abroad"}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          </div>
+        </div>
+
+        {/* Right — Scrolling content */}
+        <div className="w-[48%] relative z-10">
+          <div className="w-full max-w-xl mx-auto px-6 pt-6 pb-16">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h1 className="text-4xl xl:text-5xl font-bold text-white mb-2 leading-snug">
+                {hero?.section_title || "Study Abroad"}
+              </h1>
+              <div className="w-8 h-0.5 bg-gradient-to-r from-brand-primary to-blue-500 rounded-full mb-4" />
+              {hero?.section_description && (
+                <div
+                  className="text-white/70 text-sm leading-relaxed mb-10"
+                  dangerouslySetInnerHTML={{ __html: hero.section_description }}
+                />
+              )}
+            </motion.div>
+
+            {blocks
+              .filter(block => block.block_type !== "offer-summary")
+              .map((block) => {
+                const hasElements = block.elements?.length > 0;
+                const hasDescription = block.section_description && block.section_description.replace(/<[^>]*>/g, '').trim().length > 0;
+                const blockImage = block.settings?.section_image;
+                const resolvedBlockImage = blockImage
+                  ? blockImage.startsWith("http") ? blockImage
+                    : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${blockImage}`
+                  : null;
+
+                if (!hasElements && !hasDescription && !resolvedBlockImage) return null;
+
+                return (
+                  <div key={block.id} className="mb-10">
+                    {block.section_title && (
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-1 h-4 bg-gradient-to-b from-brand-primary to-blue-500 rounded-full" />
+                        <h2 className="text-base font-semibold text-white/90">{block.section_title}</h2>
+                      </div>
+                    )}
+                    {resolvedBlockImage && (
+                      <div className="w-full aspect-[16/7] relative rounded-2xl overflow-hidden shadow-xl border border-white/10 mb-3 group">
+                        <Image src={resolvedBlockImage} alt={block.section_title || "Section image"} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      </div>
+                    )}
+                    {hasDescription && (
+                      <div
+                        className="text-white/75 text-sm leading-relaxed mb-3 [&_p]:mb-2 last:[&_p]:mb-0"
+                        dangerouslySetInnerHTML={{ __html: block.section_description }}
+                      />
+                    )}
+                    {hasElements && (
+                      <div className="grid grid-cols-2 gap-3 auto-rows-fr">
+                        {block.elements.map((el, ei) => (
+                          <InfoCard key={el.id || ei} feature={el} index={ei} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
+      <ApplyNowSection />
+    </div>
   );
 }
