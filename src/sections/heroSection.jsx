@@ -52,7 +52,8 @@ const HeroAnimation = ({ hero_sliders }) => {
 
             <section className="flex flex-col-reverse lg:items-center lg:flex-row max-w-7xl mx-auto justify-between gap-10 w-full">
                 <section className="relative w-full lg:w-6/12 ">
-                    <div className="absolute left-1/2 overflow-hidden w-90 md:w-120 lg:w-150 2xl:w-160 lg:left-1/2 -translate-x-1/2 top-1/2 lg:top-[54%] -translate-y-1/2 z-0 animate-spin-slow opacity-80 lg:opacity-100">
+                    {/* Wheel - In front of stand (z-20) */}
+                    <div className="absolute left-1/2 overflow-hidden w-90 md:w-120 lg:w-150 2xl:w-160 lg:left-1/2 -translate-x-1/2 top-1/2 lg:top-[52%] -translate-y-1/2 z-20 animate-spin-slow opacity-80 lg:opacity-100">
                         <Image
                             src={"/images/london-wheel.png"}
                             width={800}
@@ -60,7 +61,9 @@ const HeroAnimation = ({ hero_sliders }) => {
                             alt={"london-wheel.png"}
                         />
                     </div>
-                    <div className="absolute  z-0 w-85 left-1/2 bottom-1 md:-bottom-8 md:w-120 lg:w-145 lg:bottom-15 lg:left-1/2 -translate-x-1/2 2xl:w-155 flex justify-center lg:block opacity-80 lg:opacity-100">
+                    
+                    {/* Stand - Behind (z-0) */}
+                    <div className="absolute z-0 w-85 left-1/2 bottom-1 md:-bottom-8 md:w-120 lg:w-145 lg:bottom-15 lg:left-1/2 -translate-x-1/2 2xl:w-155 flex justify-center lg:block opacity-80 lg:opacity-100">
                         <Image
                             src={"/images/bg-stand.webp"}
                             width={840}
@@ -70,8 +73,9 @@ const HeroAnimation = ({ hero_sliders }) => {
                         />
                     </div>
 
-                    <div className="flex items-center justify-center w-full lg:w-[75%] overflow-hidden 2xl:w-1/2 h-100 md:h-125 lg:h-220 z-10">
-                        <div className="absolute left-1/2 top-1/2 lg:top-[56%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group">
+                    {/* Logos - Above wheel (z-30) - CHANGED FROM z-0 TO z-30 */}
+                    <div className="flex items-center justify-center w-full lg:w-[75%] overflow-hidden 2xl:w-1/2 h-100 md:h-125 lg:h-220 z-30">
+                        <div className="absolute left-1/2 top-1/2 lg:top-[53%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group">
                             {logos.map((logo, index) => {
                                 const rotationAngle =
                                     (index * 360) / logos.length;
@@ -123,6 +127,7 @@ const HeroAnimation = ({ hero_sliders }) => {
                             })}
                         </div>
                     </div>
+                  
                 </section>
 
                 <section className="z-10 text-center w-full lg:w-6/12 lg:text-left lg:mt-30 xl:mt-0 mt-20">

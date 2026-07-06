@@ -65,7 +65,7 @@ const Footer = () => {
         {
             title: "Quick Links",
             links: [
-                { name: "About", url: "/about" },
+                { name: "About", url: "/about/about-us" },
                 { name: "Study Abroad", url: "/study-abroad" },
                 { name: "Career", url: "/career" },
                 { name: "Contact", url: "/contact" },
