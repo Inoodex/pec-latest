@@ -139,11 +139,12 @@ export default function PromotionalSection({ pageNumber = 1 }) {
   const hero = offerSummaryBlock || blocks?.[0];
 
   const resolvedHeroImage = (() => {
-    const img = offerSummaryBlock?.settings?.section_image || blocks?.[0]?.settings?.section_image;
+    const rawImg = offerSummaryBlock?.settings?.section_image || blocks?.[0]?.settings?.section_image;
+    const img = rawImg && rawImg !== "null" ? rawImg : null;
     if (!img) return "/study_abroad/study-bg.webp";
     if (img.startsWith("http")) return img;
     const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "");
-    return `${siteUrl}${img}`;
+    return `${siteUrl}${img.startsWith("/") ? "" : "/"}${img}`;
   })();
 
   if (loading) {
@@ -217,9 +218,10 @@ export default function PromotionalSection({ pageNumber = 1 }) {
               const hasElements = block.elements?.length > 0;
               const hasDescription = block.section_description && block.section_description.replace(/<[^>]*>/g, '').trim().length > 0;
               const blockImage = block.settings?.section_image;
-              const resolvedBlockImage = blockImage
-                ? blockImage.startsWith("http") ? blockImage
-                  : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${blockImage}`
+              const cleanImg = blockImage && blockImage !== "null" ? blockImage : null;
+              const resolvedBlockImage = cleanImg
+                ? cleanImg.startsWith("http") ? cleanImg
+                  : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${cleanImg.startsWith("/") ? "" : "/"}${cleanImg}`
                 : null;
 
               if (!hasElements && !hasDescription && !resolvedBlockImage) return null;
@@ -301,9 +303,10 @@ export default function PromotionalSection({ pageNumber = 1 }) {
                 const hasElements = block.elements?.length > 0;
                 const hasDescription = block.section_description && block.section_description.replace(/<[^>]*>/g, '').trim().length > 0;
                 const blockImage = block.settings?.section_image;
-                const resolvedBlockImage = blockImage
-                  ? blockImage.startsWith("http") ? blockImage
-                    : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${blockImage}`
+                const cleanImg = blockImage && blockImage !== "null" ? blockImage : null;
+                const resolvedBlockImage = cleanImg
+                  ? cleanImg.startsWith("http") ? cleanImg
+                    : `${(process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "")}${cleanImg.startsWith("/") ? "" : "/"}${cleanImg}`
                   : null;
 
                 if (!hasElements && !hasDescription && !resolvedBlockImage) return null;

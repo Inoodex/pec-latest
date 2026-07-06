@@ -509,7 +509,7 @@ const handleLogin = async (e) => {
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className="absolute top-full left-0 bg-[var(--nav-background)] right-0 mt-3 lg:hidden backdrop-blur-2xl rounded-3xl border border-[var(--nav-border)] shadow-2xl overflow-hidden p-4"
+                                className="absolute top-full left-0 bg-[var(--nav-background-solid)] right-0 mt-3 lg:hidden rounded-3xl border border-[var(--nav-border)] shadow-2xl overflow-hidden p-4"
                             >
                                 <div className="flex flex-col gap-2">
                                     {navData.map((item, idx) => (

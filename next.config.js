@@ -17,6 +17,10 @@ const nextConfig = {
         hostname: "peceduglobal.com",
         // pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };

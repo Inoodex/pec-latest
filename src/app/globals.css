@@ -21,6 +21,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #dbeafe;
     --nav-background: rgba(30, 64, 175, 0.78);
+    --nav-background-solid: rgb(30, 64, 175);
     --nav-border: rgba(147, 197, 253, 0.45);
     --nav-text: rgba(255, 255, 255, 0.96);
 }
@@ -35,6 +36,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #d4d4d8;
     --nav-background: rgba(9, 9, 11, 0.82);
+    --nav-background-solid: rgb(9, 9, 11);
     --nav-border: rgba(255, 255, 255, 0.18);
     --nav-text: rgba(248, 250, 252, 0.94);
 }
@@ -49,6 +51,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #dbeafe;
     --nav-background: rgba(30, 64, 175, 0.78);
+    --nav-background-solid: rgb(30, 64, 175);
     --nav-border: rgba(147, 197, 253, 0.45);
     --nav-text: rgba(255, 255, 255, 0.96);
 }
@@ -63,6 +66,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #dcfce7;
     --nav-background: rgba(21, 128, 61, 0.78);
+    --nav-background-solid: rgb(21, 128, 61);
     --nav-border: rgba(134, 239, 172, 0.45);
     --nav-text: rgba(255, 255, 255, 0.96);
 }
@@ -76,6 +80,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #fcf2dc;
     --nav-background: rgba(128, 85, 21, 0.78);
+    --nav-background-solid: rgb(128, 85, 21);
     --nav-border: rgba(239, 197, 134, 0.45);
     --nav-text: rgba(255, 255, 255, 0.96);
 }
@@ -90,6 +95,7 @@
     --brand-contrast: #ffffff;
     --brand-soft-text: #f3e8ff;
     --nav-background: rgba(107, 33, 168, 0.78);
+    --nav-background-solid: rgb(107, 33, 168);
     --nav-border: rgba(216, 180, 254, 0.45);
     --nav-text: rgba(255, 255, 255, 0.96);
 }

@@ -39,7 +39,7 @@ const BenefitsSection = () => {
                     );
 
                     const resolveImage = (img) => {
-                        if (!img) return null;
+                        if (!img || img === "null") return null;
                         if (img.startsWith("http")) return img;
                         return `${process.env.NEXT_PUBLIC_SITE_URL}${img}`;
                     };
