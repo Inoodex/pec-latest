@@ -21,7 +21,7 @@ const Blogs = async () => {
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto px-4 2xl:px-0 mt-1 pb-20">
+            <section className="max-w-7xl mx-auto px-4 2xl:px-0 mt-5 pb-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {data?.data?.map((blog, index) => (
                         <Blog blog={blog} key={blog.id} index={index} />
