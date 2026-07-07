@@ -525,11 +525,11 @@ const handleLogin = async (e) => {
                                                             idx,
                                                         )
                                                     }
-                                                    className="w-full flex items-center justify-between py-3 px-2 text-sm text-white font-normal"
+                                                    className="w-full flex items-center justify-between py-3 px-2 text-base md:text-lg font-medium text-white"
                                                 >
                                                     {item.name}
                                                     <ChevronDown
-                                                        size={16}
+                                                        size={18}
                                                         className={`transition-transform ${mobileExpanded === idx ? "rotate-180" : ""}`}
                                                     />
                                                 </button>
@@ -537,7 +537,7 @@ const handleLogin = async (e) => {
                                                 <Link
                                                     href={item.href}
                                                     onClick={closeMobileMenu}
-                                                    className="w-full flex items-center justify-between py-3 px-2 text-sm text-white font-normal"
+                                                    className="w-full flex items-center justify-between py-3 px-2 text-base md:text-lg font-medium text-white"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -577,7 +577,7 @@ const handleLogin = async (e) => {
                                                                             onClick={
                                                                                 closeMobileMenu
                                                                             }
-                                                                            className="text-white/80 text-xs py-1"
+                                                                            className="text-white/80 text-sm md:text-base py-1.5"
                                                                         >
                                                                             {
                                                                                 child.name
@@ -594,7 +594,7 @@ const handleLogin = async (e) => {
                                     <Link
                                         href={"/apply-now"}
                                         onClick={closeMobileMenu}
-                                        className="px-4 flex items-center gap-1 py-2 bg-black/10 text-white justify-center rounded-xl text-sm font-normal"
+                                        className="px-4 flex items-center gap-1 py-3 bg-black/10 text-white justify-center rounded-xl text-base md:text-lg font-medium"
                                     >
                                         Apply Now
                                     </Link>

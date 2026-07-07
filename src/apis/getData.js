@@ -22,7 +22,7 @@ export const getHomeData = async (url = "", revalidate) => {
 };
 
 export const getBlogData = async (url = "", revalidate) => {
-    const api_url = `${getBaseUrl()}/${url}`;
+    const api_url = `https://apps.peceduglobal.com/api/public/blogs`;
     try {
         const response = await fetch(api_url, {
             next: { revalidate: revalidate ?? 60 },
@@ -35,7 +35,7 @@ export const getBlogData = async (url = "", revalidate) => {
 };
 
 export const getSingleBlogData = async (url = "", revalidate) => {
-    const api_url = `${getBaseUrl()}/blogs/${url}`;
+    const api_url = `https://apps.peceduglobal.com/api/public/blogs/${url}`;
     try {
         const response = await fetch(api_url, {
             next: { revalidate: revalidate ?? 60 },

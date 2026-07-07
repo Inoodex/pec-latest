@@ -73,9 +73,8 @@ const HeroAnimation = ({ hero_sliders }) => {
                         />
                     </div>
 
-                    {/* Logos - Above wheel (z-30) - CHANGED FROM z-0 TO z-30 */}
-                    <div className="flex items-center justify-center w-full lg:w-[75%] overflow-hidden 2xl:w-1/2 h-100 md:h-125 lg:h-220 z-30">
-                        <div className="absolute left-1/2 top-1/2 lg:top-[53%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group">
+                    <div className="flex items-center justify-center w-full lg:w-[55%] overflow-hidden 2xl:w-1/2 h-100 md:h-125 lg:h-220">
+                        <div className="absolute left-1/2 top-1/2 lg:top-[49%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group z-36">
                             {logos.map((logo, index) => {
                                 const rotationAngle =
                                     (index * 360) / logos.length;
@@ -90,26 +89,26 @@ const HeroAnimation = ({ hero_sliders }) => {
                                     >
                                         <style jsx>{`
                                             div {
-                                                --radius: -120px;
+                                                --radius: 140px;
                                             }
                                             @media (min-width: 768px) {
                                                 div {
-                                                    --radius: -150px;
+                                                    --radius: -120px;
                                                 }
                                             }
                                             @media (min-width: 1024px) {
                                                 div {
-                                                    --radius: -190px;
+                                                    --radius: -160px;
                                                 }
                                             }
                                             @media (min-width: 1536px) {
                                                 div {
-                                                    --radius: -205px;
+                                                    --radius: -180px;
                                                 }
                                             }
                                         `}</style>
 
-                                        <div className="animate-spin-reverse bg-white rounded-md flex items-center justify-center w-16 md:w-20 md:h-12 lg:w-24 h-14 shadow-lg group-hover:[animation-play-state:paused] p-1">
+                                        <div className="animate-spin-reverse bg-white rounded-md flex items-center justify-center w-25 md:w-12 md:h-12 lg:w-24 h-14 shadow-lg group-hover:[animation-play-state:paused] p-2">
                                             <Image
                                                 src={
                                                     process.env
@@ -130,7 +129,7 @@ const HeroAnimation = ({ hero_sliders }) => {
                   
                 </section>
 
-                <section className="z-10 text-center w-full lg:w-6/12 lg:text-left lg:mt-30 xl:mt-0 mt-20">
+                <section className="z-0 text-center w-full lg:w-6/12 lg:text-left lg:mt-30 xl:mt-0 mt-20">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={

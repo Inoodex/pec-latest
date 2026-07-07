@@ -72,11 +72,13 @@ const Footer = () => {
             ],
         },
         {
-            title: "Country",
-            links: popularDestination.map((item) => ({
-                name: `Study in ${item.name}`,
-                url: `/popular-destinations/${item.id}`,
-            })),
+            title: "Explore",
+            links: [
+                { name: "Events", url: "#" },
+                { name: "Resources", url: "#" },
+                { name: "Gallery", url: "#" },
+                { name: "IELTS", url: "#" },
+            ],
         },
     ];
 
@@ -209,13 +211,14 @@ const Footer = () => {
                             </h4>
                             <ul className="space-y-4">
                                 {section.links.map((link, lIdx) => (
-                                    <Link
-                                        href={link.url || "/career"}
-                                        key={lIdx}
-                                        className="text-gray-300 hover:text-white transition-colors text-lg flex items-center gap-1 group"
-                                    >
-                                        {link.name}
-                                    </Link>
+                                    <li key={lIdx}>
+                                        <Link
+                                            href={link.url || "/career"}
+                                            className="text-gray-300 hover:text-white transition-colors text-lg flex items-center gap-1 group"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </li>
                                 ))}
                             </ul>
                         </motion.div>
@@ -360,7 +363,7 @@ const Footer = () => {
                             
                            
                         </div>
-                        <hr className="my-2 text-gray-400" />
+                    
                         {/* <h2 className="text-sm my-3 font-semibold">
                             SUBSCRIBE OUR NEWSLETTER
                         </h2> */}

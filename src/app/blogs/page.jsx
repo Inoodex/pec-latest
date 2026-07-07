@@ -1,34 +1,33 @@
 import { getBlogData } from "@/apis/getData";
 import Blog from "@/components/blog";
-import Heading from "@/components/heading";
 
 const Blogs = async () => {
     const { data } = await getBlogData("blogs", 300);
-    console.log(data);
 
     return (
         <div className="bg-gray-100">
-            <div className="md:py-20 py-10 md:pt-40 max-w-7xl pt-30 mx-auto px-4 2xl:px-0 overflow-x-hidden">
-                <Heading
-                    title="Discover our latest"
-                    highlight="Blogs"
-                    subtitle="- Our Insights"
-                    color={false}
-                    paragraph="Explore our latest blogs and insights on web development, design, and technology trends. Stay informed and inspired with our expert articles and tips."
-                />
-                <h2 className="text-3xl font-semibold pl-3 text-brand-primary mt-10">
-                    Latest Blogs
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-3">
-                    {data?.data?.map((blog) => (
-                        <div key={blog.id}>
-                            <div className="shadow-lg rounded-2xl ">
-                                <Blog blog={blog} />
-                            </div>
-                        </div>
+            <section className="relative pt-30 md:pt-40 pb-16 bg-linear-to-br from-brand-primary/10 via-white to-brand-accent/10">
+                <div className="max-w-7xl mx-auto px-4 2xl:px-0 text-center">
+                    <span className="inline-block px-4 py-2 rounded-full bg-brand-primary text-brand-contrast text-sm font-bold uppercase tracking-widest mb-4">
+                        - Our Insights
+                    </span>
+                    <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Discover our latest{" "}
+                        <span className="bg-brand-accent text-brand-contrast px-3 rounded-md">Blogs</span>
+                    </h1>
+                    <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
+                        Explore our latest blogs and insights on study abroad, travel, education, and career opportunities.
+                    </p>
+                </div>
+            </section>
+
+            <section className="max-w-7xl mx-auto px-4 2xl:px-0 -mt-10 pb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {data?.data?.map((blog, index) => (
+                        <Blog blog={blog} key={blog.id} index={index} />
                     ))}
                 </div>
-            </div>
+            </section>
         </div>
     );
 };
