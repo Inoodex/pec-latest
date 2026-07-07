@@ -1,8 +1,9 @@
+// app/blogs/page.jsx
 import { getBlogData } from "@/apis/getData";
 import Blog from "@/components/blog";
 
 const Blogs = async () => {
-    const { data } = await getBlogData("blogs", 300);
+    const { data } = await getBlogData();
 
     return (
         <div className="bg-gray-100 min-h-screen">
