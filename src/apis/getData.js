@@ -22,7 +22,7 @@ export const getHomeData = async (url = "", revalidate) => {
 };
 
 export const getBlogData = async (url = "", revalidate) => {
-    const api_url = `https://apps.peceduglobal.com/api/public/blogs`;
+    const api_url = `https://apps.peceduglobal.com/api/public/blogs?per_page=100`;
     try {
         const response = await fetch(api_url, {
             next: { revalidate: revalidate ?? 60 },

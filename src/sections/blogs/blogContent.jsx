@@ -10,15 +10,7 @@ export default function BlogContent({ blogDetails, allBlogs }) {
     const blog = blogDetails?.data;
     const fullBlog = allBlogs?.find((b) => b.slug === blog?.slug) || {};
     const content = blog?.content || fullBlog?.content || "";
-    const [isLiked, setIsLiked] = useState(false);
-    const [isSaved, setIsSaved] = useState(false);
-    const [currentUrl, setCurrentUrl] = useState("");
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setCurrentUrl(window.location.href);
-        }
-    }, []);
+    const currentUrl = `https://www.peceduglobal.com/blogs/${blog?.slug}`;
 
     const readTime = Math.ceil(content.split(/\s+/).length / 200) || 1;
 

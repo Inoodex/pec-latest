@@ -1,8 +1,10 @@
 import { getBlogData } from "@/apis/getData";
 import Blog from "@/components/blog";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 const Blogs = async () => {
-    const { data } = await getBlogData("blogs", 300);
+    const { data } = await getBlogData("blogs", 0);
 
     return (
         <div className="bg-gray-100 min-h-screen">
@@ -23,7 +25,7 @@ const Blogs = async () => {
 
             <section className="max-w-7xl mx-auto px-4 2xl:px-0 mt-5 pb-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {data?.data?.map((blog, index) => (
+                    {data?.map((blog, index) => (
                         <Blog blog={blog} key={blog.id} index={index} />
                     ))}
                 </div>

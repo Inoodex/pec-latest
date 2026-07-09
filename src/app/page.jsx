@@ -12,8 +12,11 @@ import VoucherSection from "@/sections/voucher";
 import { getHomeData } from "@/apis/getData";
 import BenefitsSection from "@/sections/benefitSection";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const Home = async () => {
-    const { home } = await getHomeData("home", 60);
+    const { home } = await getHomeData("home", 0);
     return (
         <div className="bg-background text-foreground transition-colors overflow-x-hidden duration-200">
             <HeroAnimation hero_sliders={home.hero_sliders} />

@@ -15,7 +15,7 @@ export default async function BlogsSection({ blogs = [] }) {
                               stay informed."
         />
         <section className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 px-4 gap-5 mt-10">
-          {blogs.map((blog) => (
+          {blogs?.slice(0, 3).map((blog) => (
             <Blog key={blog.id} blog={blog} />
           ))}
         </section>
