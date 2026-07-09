@@ -1,10 +1,13 @@
 import { getBlogData } from "@/apis/getData";
 import Blog from "@/components/blog";
+import PaginatedBlogs from "@/components/paginatedBlogs";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 const Blogs = async () => {
-    const { data } = await getBlogData("blogs", 0);
+    const response = await getBlogData("", 0);
+    const data = response?.data || [];
+    const meta = response?.meta || { current_page: 1, last_page: 1 };
 
     return (
         <div className="bg-gray-100 min-h-screen">
@@ -24,11 +27,7 @@ const Blogs = async () => {
             </section>
 
             <section className="max-w-7xl mx-auto px-4 2xl:px-0 mt-5 pb-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {data?.map((blog, index) => (
-                        <Blog blog={blog} key={blog.id} index={index} />
-                    ))}
-                </div>
+                <PaginatedBlogs initialBlogs={data} initialMeta={meta} />
             </section>
         </div>
     );
