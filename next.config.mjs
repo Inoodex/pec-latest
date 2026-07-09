@@ -5,17 +5,24 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "apps.peceduglobal.com",
+        // pathname: "**",
       },
       {
         protocol: "https",
         hostname: "www.apps.peceduglobal.com",
+        // pathname: "**",
       },
       {
         protocol: "https",
         hostname: "peceduglobal.com",
+        // pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
