@@ -48,7 +48,7 @@ const InfoCard = ({ feature, index }) => {
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.06 }}
+      transition={{ duration: 0.15, delay: index * 0.03 }}
       className="group relative flex items-start gap-2.5 p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-white/15 hover:border-white/20 transition-all duration-300 h-full"
     >
       <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-brand-primary/30 to-brand-primary/10 group-hover:from-brand-primary/40 group-hover:to-brand-primary/20 transition-all duration-300">
@@ -80,7 +80,7 @@ const ApplyNowSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             Ready to Start Your{" "}
@@ -182,7 +182,7 @@ export default function PromotionalSection({ pageNumber = 1 }) {
 
         {/* Mobile: Title + description ABOVE image */}
         <div className="relative z-10 px-4 sm:px-6 pt-4 pb-3">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1.5 leading-tight">
               {hero?.section_title || "Study Abroad"}
             </h1>
@@ -284,7 +284,7 @@ export default function PromotionalSection({ pageNumber = 1 }) {
         {/* Right — Scrolling content */}
         <div className="w-[48%] relative z-10">
           <div className="w-full max-w-xl mx-auto px-6 pt-6 pb-16">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.2 }}>
               <h1 className="text-4xl xl:text-5xl font-bold text-white mb-2 leading-snug">
                 {hero?.section_title || "Study Abroad"}
               </h1>

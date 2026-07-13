@@ -24,7 +24,7 @@ export default function WhyChooseUs({ chooseUs }) {
                         opacity: 0,
                     }}
                     transition={{
-                        duration: 0.5,
+                        duration: 1.5,
                         delay: 0.2,
                     }}
                     whileInView={{
@@ -44,7 +44,7 @@ export default function WhyChooseUs({ chooseUs }) {
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{
-                                    duration: 0.5,
+                                    duration: 0.4,
                                     delay: 0.2,
                                 }}
                                 key={feature.id}
@@ -88,7 +88,7 @@ export default function WhyChooseUs({ chooseUs }) {
                             initial={{ opacity: 0, x: 100 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{
-                                duration: 0.5,
+                                duration: 0.4,
                                 delay: 0.2,
                             }}
                             className="relative w-full max-w-120 lg:max-w-full aspect-4/4 rounded-3xl overflow-hidden border-3 border-brand-primary shadow-xl"

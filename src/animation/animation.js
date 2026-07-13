@@ -2,7 +2,7 @@ export const containerVariants = {
       hidden: { opacity: 0 },
       visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 },
+            transition: { staggerChildren: 0.05 },
       },
 };
 
@@ -11,7 +11,7 @@ export const cardVariants = {
       visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: "easeOut" },
+            transition: { duration: 0.15, ease: "easeOut" },
       },
 };
 
@@ -22,8 +22,8 @@ export const fadeUp = {
             opacity: 1,
             y: 0,
             transition: {
-                  duration: 0.55,
-                  delay: i * 0.1,
+                  duration: 0.15,
+                  delay: i * 0.03,
                   ease: [0.22, 1, 0.36, 1],
             },
       }),
@@ -34,7 +34,7 @@ export const slideLeft = {
       visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
       },
 };
 
@@ -43,7 +43,7 @@ export const slideRight = {
       visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
       },
 };
 
@@ -53,8 +53,8 @@ export const reasonFadeUp = {
             opacity: 1,
             y: 0,
             transition: {
-                  duration: 0.55,
-                  delay: i * 0.08,
+                  duration: 0.15,
+                  delay: i * 0.02,
                   ease: [0.22, 1, 0.36, 1],
             },
       }),

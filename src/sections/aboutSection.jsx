@@ -23,7 +23,7 @@ const AboutSection = ({ aboutCompany }) => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
+                        transition={{ duration: 0.15, delay: 0.15 }}
                         className="lg:w-6/12 w-full"
                     >
                         <span className="py-2 px-4 bg-brand-primary rounded-full text-lg text-brand-contrast font-semibold">
@@ -52,7 +52,7 @@ const AboutSection = ({ aboutCompany }) => {
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
+                            transition={{ duration: 0.15, delay: 0.15 }}
                             className="relative h-full flex flex-col md:flex-row gap-4"
                         >
                             <div className="lg:absolute top-0 left-0 lg:w-100 md:w-6/12 w-full lg:h-100">

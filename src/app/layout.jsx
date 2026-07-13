@@ -13,7 +13,7 @@ const chivo = Chivo({
 });
 
 export const metadata = {
-    title: "PECEDU Global",
+    title: "PECEDU Global || Best Study Abroad Consultancy",
     description:
         "PECEDU Gloabl discover a few simple steps to realize your aspirations of studying abroad. These steps are proven to work 100% and can transform your life.",
 };
