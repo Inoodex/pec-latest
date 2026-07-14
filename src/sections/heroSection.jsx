@@ -74,7 +74,7 @@ const HeroAnimation = ({ hero_sliders }) => {
                     </div>
 
                     <div className="flex items-center justify-center w-full lg:w-[55%] overflow-hidden 2xl:w-1/2 h-100 md:h-125 lg:h-220">
-                        <div className="absolute left-1/2 top-1/2 lg:top-[70%] xl:top-[55%] 2xl:top-[52%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group z-36">
+                        <div className="absolute left-1/2 top-1/2 lg:top-[40%] xl:top-[55%] 2xl:top-[52%] -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center animate-spin-slow hover:[animation-play-state:paused] group z-36">
                             {logos.map((logo, index) => {
                                 const rotationAngle =
                                     (index * 360) / logos.length;
@@ -108,7 +108,7 @@ const HeroAnimation = ({ hero_sliders }) => {
                                             }
                                         `}</style>
 
-                                        <div className="animate-spin-reverse bg-white rounded-md flex items-center justify-center w-25 md:w-12 md:h-12 lg:w-24 h-14 shadow-lg group-hover:[animation-play-state:paused] p-2">
+                                        <div className="animate-spin-reverse bg-white rounded-md flex items-center justify-center w-16 md:w-12 md:h-12 lg:w-20 h-10 md:h-14 shadow-lg group-hover:[animation-play-state:paused] p-2">
                                             <Image
                                                 src={
                                                     process.env
