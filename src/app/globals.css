@@ -118,9 +118,6 @@ p {
     font-size: 16px !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.5rem !important;
-}
 @keyframes marquee-rl {
     0% {
         transform: translateX(0%);
@@ -172,4 +169,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 .animate-spin-reverse {
     animation: spin-reverse 30s linear infinite;
+}
+
+/* Hero section logo orbit radius – responsive */
+:root {
+    --logo-radius: -120px;
+}
+@media (min-width: 768px) {
+    :root {
+        --logo-radius: -160px;
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+        --logo-radius: -200px;
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --logo-radius: -220px;
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --logo-radius: -240px;
+    }
 }
