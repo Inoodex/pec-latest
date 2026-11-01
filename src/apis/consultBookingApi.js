@@ -69,3 +69,37 @@ export const getSlotByDate = async (date = "") => {
         throw error;
     }
 };
+
+export const getCeoAvailability = async () => {
+    const baseUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${process.env.NEXT_PUBLIC_BASE_URL}`;
+    const api_url = `${baseUrl}/ceo/availability`;
+    try {
+        const response = await fetch(api_url, {
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("CEO Availability Error:", error);
+        throw error;
+    }
+};
+
+export const bookCeoAppointment = async (payload) => {
+    const baseUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${process.env.NEXT_PUBLIC_BASE_URL}`;
+    const api_url = `${baseUrl}/consultants/book-appointment`;
+    try {
+        const response = await fetch(api_url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("CEO Booking Error:", error);
+        throw error;
+    }
+};

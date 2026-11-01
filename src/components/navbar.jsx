@@ -109,8 +109,7 @@ const Navbar = () => {
         //   ],
         // },
 
-        { name: "Services", href: "/services" },
-        { name: "Blogs", href: "/blogs" },
+      
         { name: "Contact", href: "/contact" },
     ];
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

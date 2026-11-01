@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 // import CEOIMG from "@/images/ceo.webp"
 
 // import { useEffect, useRef, useState } from "react";
@@ -10,8 +11,11 @@ import Image from "next/image";
 //     useTransform,
 // } from "motion/react";
 import Heading from "@/components/heading";
+import ConsultBookingModal from "@/components/consultBookingModal";
+import CeoBookingModal from "@/components/ceoBookingModal";
 
 const TeamSection = ({ officials }) => {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
   // const baseX = useMotionValue(0);
   // const [isHovered, setIsHovered] = useState(false);
   // const [isDragging, setIsDragging] = useState(false);
@@ -106,6 +110,14 @@ const TeamSection = ({ officials }) => {
             Founder & CEO
           </p>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setIsAppointmentModalOpen(true)}
+          className="ml-auto block rounded-full bg-brand-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-accent"
+        >
+          Book Appointment
+        </button>
       </div>
 
       {/* CEO Image - Right Side */}
@@ -326,6 +338,10 @@ const TeamSection = ({ officials }) => {
                     </div>
                 </div> */}
       </section>
+      <CeoBookingModal
+                isOpen={isAppointmentModalOpen}
+                onClose={() => setIsAppointmentModalOpen(false)}
+      />
     </section>
   );
 };
