@@ -9,7 +9,6 @@ import LiveChat from "@/components/liveChat";
 const chivo = Chivo({
     subsets: ["latin"],
     variable: "--font-chivo",
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata = {

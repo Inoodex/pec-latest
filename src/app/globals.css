@@ -108,7 +108,7 @@ body {
     background: var(--background);
     scroll-behavior: smooth;
     color: var(--foreground);
-    font-family: "Chivo", sans-serif;
+    font-family: var(--font-chivo), "Chivo", sans-serif;
     transition:
         background-color 200ms ease,
         color 200ms ease;
