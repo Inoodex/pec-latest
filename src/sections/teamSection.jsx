@@ -102,22 +102,24 @@ const TeamSection = ({ officials }) => {
           to a future without boundaries.
         </p>
 
-        <div className="pt-3 border-t border-white/10">
-          <h4 className="font-bold text-2xl text-white">
-            Md. Rafiqul Islam
-          </h4>
-          <p className="text-white font-semibold text-lg mt-.08">
-            Founder & CEO
-          </p>
-        </div>
+        <div className="flex items-center justify-between gap-4 pt-3">
+          <div>
+            <h4 className="font-bold text-2xl text-white">
+              Md. Rafiqul Islam
+            </h4>
+            <p className="text-white font-semibold text-lg mt-.08">
+              Founder & CEO
+            </p>
+          </div>
 
-        <button
-          type="button"
-          onClick={() => setIsAppointmentModalOpen(true)}
-          className="ml-auto block rounded-full bg-brand-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-accent"
-        >
-          Book Appointment
-        </button>
+          <button
+            type="button"
+            onClick={() => setIsAppointmentModalOpen(true)}
+            className="inline-flex items-center justify-center rounded-full bg-[#0b4bb0] px-7 py-3 text-base font-semibold text-white shadow-[0_10px_18px_rgba(11,75,176,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0d59cc] focus:outline-none focus:ring-4 focus:ring-[#8ab6ff]/50"
+          >
+            Book Appointment
+          </button>
+        </div>
       </div>
 
       {/* CEO Image - Right Side */}
