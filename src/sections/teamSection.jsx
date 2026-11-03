@@ -115,7 +115,7 @@ const TeamSection = ({ officials }) => {
           <button
             type="button"
             onClick={() => setIsAppointmentModalOpen(true)}
-            className="inline-flex items-center justify-center rounded-full bg-[#0b4bb0] px-7 py-3 text-base font-semibold text-white shadow-[0_10px_18px_rgba(11,75,176,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0d59cc] focus:outline-none focus:ring-4 focus:ring-[#8ab6ff]/50"
+            className="inline-flex items-center justify-center rounded-full bg-brand-primary px-7 py-3 text-base font-semibold text-brand-contrast shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-brand-primary/40"
           >
             Book Appointment
           </button>
